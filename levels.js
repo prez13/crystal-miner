@@ -26,6 +26,36 @@
       monsters: [{ x: 11, y: 3, type: 'bat' }, { x: 17, y: 6, type: 'bat' }, { x: 9, y: 10, type: 'slime' }, { x: 18, y: 11, type: 'slime' }]
     },
     {
+      name: 'Frostfall Cavern',
+      subtitle: 'A frozen cave full of dangerous bats',
+      colors: ['#172b3b', '#244457'],
+
+      walls: [
+        [5, 3, 1, 6],
+        [9, 2, 1, 5],
+        [13, 6, 1, 6],
+        [17, 3, 1, 5],
+        [4, 11, 6, 1]
+      ],
+
+      rocks: [
+        [4, 4], [7, 6], [11, 4],
+        [12, 9], [15, 10], [19, 9]
+      ],
+
+      crystals: [
+        [3, 3], [7, 3], [12, 3],
+        [19, 4], [8, 9], [16, 12], [20, 11]
+      ],
+
+      monsters: [
+        { x: 10, y: 8, type: 'slime' },
+        { x: 5, y: 3, type: 'slime' },
+        { x: 18, y: 6, type: 'bat' },
+        { x: 15, y: 11, type: 'bat' }
+      ]
+    },
+    {
       name: 'The Crystal Heart', subtitle: 'Defeat the golem of the deep', colors: ['#292629', '#393034'],
       walls: [[7, 2, 1, 7], [11, 5, 1, 7], [15, 2, 1, 6], [18, 8, 1, 5], [3, 11, 5, 1]],
       rocks: [[4, 4], [5, 4], [6, 4], [9, 6], [10, 6], [12, 9], [13, 9], [14, 9], [17, 4], [18, 4], [19, 4], [16, 11]],
