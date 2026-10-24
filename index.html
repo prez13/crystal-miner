@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="theme-color" content="#111b26">
+  <meta name="description" content="Crystal Miner — a tiny pixel-art adventure you can build and play together.">
+  <title>Crystal Miner — Build it. Play it.</title>
+  <link rel="stylesheet" href="styles.css">
+  <script src="levels.js" defer></script>
+  <script src="game.js" defer></script>
+</head>
+<body>
+  <div class="app">
+    <header class="topbar">
+      <div class="brand"><span class="brand-icon" aria-hidden="true">◆</span><div><h1>CRYSTAL <span>MINER</span></h1><p>A tiny adventure. A world you can build.</p></div></div>
+      <div class="header-actions"><button class="quiet-button" id="helpBtn" type="button">? How to play</button><button class="quiet-button" id="resetBtn" type="button" title="Erase all saved progress">↺ Reset save</button></div>
+    </header>
+    <main class="layout">
+      <section class="game-panel" aria-label="Crystal Miner game">
+        <div class="statusbar">
+          <div class="status-block"><span class="eyebrow">LEVEL</span><strong id="levelName">Emerald Hollow</strong></div>
+          <div class="status-block"><span class="eyebrow">HEALTH</span><strong id="hearts" aria-label="Health">♥ ♥ ♥ ♥ ♥</strong></div>
+          <div class="status-block"><span class="eyebrow">IN YOUR BAG</span><strong id="bagCrystals">◆ 0</strong></div>
+          <div class="status-block"><span class="eyebrow">BANKED CRYSTALS</span><strong id="bankCrystals">◆ 0</strong></div>
+        </div>
+        <div class="canvas-wrap">
+          <canvas id="game" width="736" height="480" role="img" aria-label="Top-down cave map with rocks, crystals, monsters and an exit. Use the arrow keys or WASD to move, Space to attack."></canvas>
+          <div class="floating-banner" id="floatingBanner" aria-live="polite"></div>
+        </div>
+        <div class="actionbar">
+          <div class="weapon-group" role="group" aria-label="Weapons">
+            <button id="weapon-pickaxe" data-weapon="pickaxe" class="weapon-button selected" type="button"><span>⛏</span> Pickaxe <small>1</small></button>
+            <button id="weapon-sword" data-weapon="sword" class="weapon-button locked" type="button"><span>⚔</span> Sword <small>2</small></button>
+            <button id="weapon-bow" data-weapon="bow" class="weapon-button locked" type="button"><span>➶</span> Bow <small>3</small></button>
+          </div>
+          <button class="attack-button" id="attackBtn" type="button">⚡ ATTACK <small>SPACE</small></button>
+        </div>
+        <div class="game-footer"><span id="objective">Collect the crystals to unlock the exit.</span><button class="shop-link" id="openTreeBtn" type="button">✦ Skill tree <span class="keycap">T</span></button></div>
+        <div class="touch-controls" aria-label="Touch movement controls">
+          <div class="dpad"><button data-move="up" aria-label="Move up">▲</button><div><button data-move="left" aria-label="Move left">◀</button><button data-move="down" aria-label="Move down">▼</button><button data-move="right" aria-label="Move right">▶</button></div></div>
+          <p>Move with arrows / WASD<br>Attack with SPACE · Skill tree with T</p>
+        </div>
+      </section>
+      <aside class="sidebar">
+        <div class="side-card"><div class="small-label">YOUR ADVENTURE</div><h2>Into the depths</h2><p>Collect glowing crystals, mine through rocks, survive the monsters, and make it to the golden exit.</p><div class="progress"><div id="levelProgress" class="progress-fill"></div></div><div class="progress-caption"><span id="progressLabel">Level 1 of 3</span><span id="crystalGoal">0 / 6 collected</span></div></div>
+        <div class="side-card skills-promo"><div class="small-label">GET STRONGER</div><h2>Unlock your powers</h2><p>Spend crystals you bank at the exit to unlock a sword, a bow, and stronger abilities.</p><button id="sideTreeBtn" class="primary-button" type="button">✦ Open skill tree <span>→</span></button></div>
+        <div class="side-card tips-card"><div class="small-label">QUICK TIPS</div><p><span class="tip-icon">⛏</span> Face a rock and attack to mine it.</p><p><span class="tip-icon">⚔</span> Face monsters before attacking.</p><p><span class="tip-icon">◆</span> Only banked crystals can buy skills.</p><p><span class="tip-icon">✦</span> The exit opens after you collect every ground crystal.</p></div>
+      </aside>
+    </main>
+    <footer>Made to learn together • No accounts, ads, or downloads • Your progress stays in this browser</footer>
+  </div>
+
+  <div class="overlay" id="overlay" aria-hidden="false">
+    <div class="modal" id="modal" role="dialog" aria-modal="true" aria-labelledby="modalTitle"></div>
+  </div>
+</body>
+</html>
